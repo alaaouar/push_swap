@@ -1,0 +1,73 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   instructions.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/15 11:19:43 by alaaouar          #+#    #+#             */
+/*   Updated: 2024/07/23 13:38:59 by alaaouar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../header/push_swap.h"
+
+int	ft_swap(t_list **stack)
+{
+	t_list	*temp;
+
+	if (!*stack || (*stack)->next == NULL)
+		return (-1);
+	temp = *stack;
+	*stack = (*stack)->next;
+	temp -> next = (*stack)->next;
+	(*stack)->next = temp;
+	return (0);
+}
+
+int	ft_push(t_list **stack1, t_list **stack2)
+{
+	t_list	*temp;
+
+	if (!*stack1)
+		return (-1);
+	temp = *stack1;
+	*stack1 = (*stack1)->next;
+	temp->next = *stack2;
+	*stack2 = temp;
+	return (0);
+}
+
+int	ft_rotate(t_list **stack)
+{
+	t_list	*temp;
+	t_list	*last;
+
+	if (!*stack || (*stack)->next == NULL)
+		return (-1);
+	temp = *stack;
+	*stack = (*stack)->next;
+	last = *stack;
+	while (last -> next)
+		last = last -> next;
+	last -> next = temp;
+	temp -> next = NULL;
+	return (0);
+}
+
+int	ft_reverse_rotate(t_list **stack)
+{
+	t_list	*temp;
+	t_list	*last;
+
+	if (!*stack || (*stack)->next == NULL)
+		return (-1);
+	last = *stack;
+	while (last -> next -> next)
+		last = last -> next;
+	temp = last -> next;
+	last -> next = NULL;
+	temp -> next = *stack;
+	*stack = temp;
+	return (0);
+}
