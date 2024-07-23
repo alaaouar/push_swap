@@ -6,15 +6,15 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 11:17:07 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/07/21 15:17:16 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:25:39 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../push_swap.h"
 
-int	ft_swap(t_stack **stack)
+int	ft_swap(t_list **stack)
 {
-	t_stack	*temp;
+	t_list	*temp;
 
 	if (!*stack || (*stack)->next == NULL)
 		return (-1);
@@ -25,9 +25,9 @@ int	ft_swap(t_stack **stack)
 	return (0);
 }
 
-int	ft_push(t_stack **stack1, t_stack **stack2)
+int	ft_push(t_list **stack1, t_list **stack2)
 {
-	t_stack	*temp;
+	t_list	*temp;
 
 	if (!*stack1)
 		return (-1);
@@ -38,10 +38,10 @@ int	ft_push(t_stack **stack1, t_stack **stack2)
 	return (0);
 }
 
-int	ft_rotate(t_stack **stack)
+int	ft_rotate(t_list **stack)
 {
-	t_stack	*temp;
-	t_stack	*last;
+	t_list	*temp;
+	t_list	*last;
 
 	if (!*stack || (*stack)->next == NULL)
 		return (-1);
@@ -55,10 +55,10 @@ int	ft_rotate(t_stack **stack)
 	return (0);
 }
 
-int	ft_reverse_rotate(t_stack **stack)
+int	ft_reverse_rotate(t_list **stack)
 {
-	t_stack	*temp;
-	t_stack	*last;
+	t_list	*temp;
+	t_list	*last;
 
 	if (!*stack || (*stack)->next == NULL)
 		return (-1);

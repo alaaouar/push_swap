@@ -6,7 +6,7 @@
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 00:07:51 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/07/23 11:33:52 by alaaouar         ###   ########.fr       */
+/*   Updated: 2024/07/23 14:18:32 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,33 @@ char	*str_join(char **s1)
 	}
 	str[--y] = '\0';
 	return (str);
+}
+
+int	*bubble_sort(t_list **stack)
+{
+	int	*sorted;
+	int	step;
+	int	i;
+	int	tmp;
+	int	len;
+
+	len = list_size(*stack);
+	sorted = covert_to_arr(stack, list_size(*stack));
+	give_value(&step, &i);
+	while (step < len - 1)
+	{
+		i = 0;
+		while (i < len - step - 1)
+		{
+			if (sorted[i] > sorted[i + 1])
+			{
+				tmp = sorted[i];
+				sorted[i] = sorted[i + 1];
+				sorted[i + 1] = tmp;
+			}
+			i++;
+		}
+		step++;
+	}
+	return (sorted);
 }
