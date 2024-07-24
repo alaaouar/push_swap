@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/23 11:19:43 by alaaouar          #+#    #+#             */
+/*   Created: 2024/05/15 11:19:43 by alaaouar          #+#    #+#             */
 /*   Updated: 2024/07/23 13:38:59 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../header/push_swap.h"
 
 void	ft_lstclear(t_list **lst)
 {
@@ -89,8 +89,8 @@ int	repeted_number(t_list *list)
 
 int	is_sorted(t_list *lst)
 {
-	t_list	*sort;
-	t_list	*sort_next;
+	t_list *sort;
+	t_list *sort_next;
 
 	sort = lst;
 	sort_next = lst->next;

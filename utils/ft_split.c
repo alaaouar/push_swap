@@ -95,8 +95,8 @@ static int	strs_alloc(char **strs, const char *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**strs;
-	int		w_count;
+	char **strs;
+	int w_count;
 
 	if (!s)
 		return (NULL);

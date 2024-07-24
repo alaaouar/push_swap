@@ -12,15 +12,17 @@
 
 #include "../header/push_swap.h"
 
-int list_size(t_list *lst)
+int	list_size(t_list *lst)
 {
-    int count = 0;
-    while (lst)
-    {
-        count++;
-        lst = lst->next;
-    }
-    return count;
+	int	count;
+
+	count = 0;
+	while (lst)
+	{
+		count++;
+		lst = lst->next;
+	}
+	return (count);
 }
 
 void	push_helper(t_list **b, int *arr, int *distance)

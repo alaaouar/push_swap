@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/23 13:50:17 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/07/23 14:54:48 by alaaouar         ###   ########.fr       */
+/*   Created: 2024/05/15 11:19:43 by alaaouar          #+#    #+#             */
+/*   Updated: 2024/07/23 13:38:59 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../header/push_swap.h"
 
 int	get_range(t_list **a)
 {
@@ -80,17 +80,11 @@ void	sort_list(t_list **a, t_list **b)
 
 void	push_to_a(t_list **a, t_list **b, int *arr, int size)
 {
+    (void) size;
 	while ((*b))
 	{
-		if ((*b)->value == arr[size])
-		{
-			pa(a, b);
-			size--;
-		}
-		else if ((*b)-> next && (*b)->next->value == arr[size])
-			sb(b);
-		else
-			push_biggest_to_top(b, arr);
+        push_biggest_to_top(b, arr);
+        pa(a,b);
 	}
 	free(arr);
 }

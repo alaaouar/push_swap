@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions.c                                     :+:      :+:    :+:   */
+/*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,62 +12,77 @@
 
 #include "../header/push_swap.h"
 
-int	ft_swap(t_list **stack)
+int	ft_isalpha(int c)
+{
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	{
+		return (1);
+	}
+	return (0);
+}
+
+int	checker(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+	{
+		if ((ft_atol(av[i]) > 2147483647) || (ft_atol(av[i]) < -2147483648))
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	stack_sorted(t_list **stack)
 {
 	t_list	*temp;
 
-	if (!*stack || (*stack)->next == NULL)
-		return (-1);
 	temp = *stack;
-	*stack = (*stack)->next;
-	temp -> next = (*stack)->next;
-	(*stack)->next = temp;
+	while (temp->next)
+	{
+		if (temp->value > temp->next->value)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
+}
+
+int	push_min_to_b(t_list **a, t_list **b)
+{
+	int	min_index;
+
+	if (!(*a))
+		return (1);
+	min_index = find_min_index(a);
+	if (min_index == 1)
+		sa(a);
+	else if (min_index == 2)
+	{
+		ra(a);
+		sa(a);
+	}
+	else if (min_index == 3)
+		rra(a);
+	pb(a, b);
 	return (0);
 }
 
-int	ft_push(t_list **stack1, t_list **stack2)
+int	update_index(t_list **stack)
 {
 	t_list	*temp;
+	int		i;
 
-	if (!*stack1)
-		return (-1);
-	temp = *stack1;
-	*stack1 = (*stack1)->next;
-	temp->next = *stack2;
-	*stack2 = temp;
-	return (0);
-}
-
-int	ft_rotate(t_list **stack)
-{
-	t_list	*temp;
-	t_list	*last;
-
-	if (!*stack || (*stack)->next == NULL)
-		return (-1);
+	i = 0;
 	temp = *stack;
-	*stack = (*stack)->next;
-	last = *stack;
-	while (last -> next)
-		last = last -> next;
-	last -> next = temp;
-	temp -> next = NULL;
-	return (0);
-}
-
-int	ft_reverse_rotate(t_list **stack)
-{
-	t_list	*temp;
-	t_list	*last;
-
-	if (!*stack || (*stack)->next == NULL)
-		return (-1);
-	last = *stack;
-	while (last -> next -> next)
-		last = last -> next;
-	temp = last -> next;
-	last -> next = NULL;
-	temp -> next = *stack;
-	*stack = temp;
+	if (!(*stack))
+		return (1);
+	while (temp)
+	{
+		temp->index = i;
+		i++;
+		temp = temp->next;
+	}
 	return (0);
 }

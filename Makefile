@@ -1,21 +1,23 @@
-NAME    = push_swap
+NAME = push_swap
+
+CC = cc
+
+CFLAGS = -Wall -Werror -Wextra  
 
 SRC     = main.c \
           rules/instructions.c \
           rules/rules.c \
           rules/rules2.c \
           rules/rules3.c \
-          ft_split.c \
-          more_utils.c \
-          sort_big.c \
-          sort_small.c \
-          sort.c \
-          utils.c \
-          utils_1.c \
-		  utils_2.c \
+          sorting/sort_big.c \
+          sorting/sort_small.c \
+          sorting/sort.c \
+          utils/ft_split.c \
+          utils/more_utils.c \
+          utils/utils.c \
+          utils/utils_1.c \
+		  utils/utils_2.c \
 
-CC      = cc
-CFLAGS  = -Wall -Werror -Wextra
 
 OBJ     = $(SRC:.c=.o)
 
@@ -24,15 +26,14 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.SECONDARY : $(OBJ)
+
+.PHONY : all clean fclean re

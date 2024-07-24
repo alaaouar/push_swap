@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 11:17:07 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/07/23 13:25:39 by alaaouar         ###   ########.fr       */
+/*   Created: 2024/05/15 11:19:43 by alaaouar          #+#    #+#             */
+/*   Updated: 2024/07/23 13:38:59 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../header/push_swap.h"
 
 int	ft_swap(t_list **stack)
 {
@@ -20,7 +20,7 @@ int	ft_swap(t_list **stack)
 		return (-1);
 	temp = *stack;
 	*stack = (*stack)->next;
-	temp -> next = (*stack)->next;
+	temp->next = (*stack)->next;
 	(*stack)->next = temp;
 	return (0);
 }
@@ -48,10 +48,10 @@ int	ft_rotate(t_list **stack)
 	temp = *stack;
 	*stack = (*stack)->next;
 	last = *stack;
-	while (last -> next)
-		last = last -> next;
-	last -> next = temp;
-	temp -> next = NULL;
+	while (last->next)
+		last = last->next;
+	last->next = temp;
+	temp->next = NULL;
 	return (0);
 }
 
@@ -63,11 +63,11 @@ int	ft_reverse_rotate(t_list **stack)
 	if (!*stack || (*stack)->next == NULL)
 		return (-1);
 	last = *stack;
-	while (last -> next -> next)
-		last = last -> next;
-	temp = last -> next;
-	last -> next = NULL;
-	temp -> next = *stack;
+	while (last->next->next)
+		last = last->next;
+	temp = last->next;
+	last->next = NULL;
+	temp->next = *stack;
 	*stack = temp;
 	return (0);
 }

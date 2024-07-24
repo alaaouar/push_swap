@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/23 13:47:33 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/07/23 14:53:57 by alaaouar         ###   ########.fr       */
+/*   Created: 2024/05/15 11:19:43 by alaaouar          #+#    #+#             */
+/*   Updated: 2024/07/23 13:38:59 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
+#include "../header/push_swap.h"
 
 int	sort_2(t_list **stack_a)
 {
@@ -32,13 +31,13 @@ int	sort_3(t_list **a)
 			sa(a);
 	}
 	else if ((*a)->value > (*a)->next->value
-		&& (*a)->value < (*a)->next->next->value)
+			&& (*a)->value < (*a)->next->next->value)
 		sa(a);
 	else if ((*a)->value < (*a)->next->value
-		&& (*a)->value > (*a)->next->next->value)
+			&& (*a)->value > (*a)->next->next->value)
 		rra(a);
 	else if ((*a)->value < (*a)->next->value
-		&& (*a)->value < (*a)->next->next->value)
+			&& (*a)->value < (*a)->next->next->value)
 	{
 		rra(a);
 		if ((*a)->value > (*a)->next->value)
@@ -78,16 +77,16 @@ int	find_min_index(t_list **stack)
 	int		index;
 
 	temp = *stack;
-	min = temp -> value;
+	min = temp->value;
 	index = 0;
 	while (temp)
 	{
-		if (temp -> value < min)
+		if (temp->value < min)
 		{
-			min = temp -> value;
-			index = temp -> index;
+			min = temp->value;
+			index = temp->index;
 		}
-		temp = temp -> next;
+		temp = temp->next;
 	}
 	return (index);
 }

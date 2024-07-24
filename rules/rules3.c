@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaaouar <alaaouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/20 11:16:24 by alaaouar          #+#    #+#             */
-/*   Updated: 2024/07/23 13:26:26 by alaaouar         ###   ########.fr       */
+/*   Created: 2024/05/15 11:19:43 by alaaouar          #+#    #+#             */
+/*   Updated: 2024/07/23 13:38:59 by alaaouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "../push_swap.h"
+#include "../header/push_swap.h"
 
 void	rrr(t_list **stack_a, t_list **stack_b)
 {
